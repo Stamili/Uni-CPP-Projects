@@ -9,6 +9,10 @@ using namespace std;
 // Then returns both evaluations.
 
 int isPrime(long long n) {
+    if (n == 1) {
+        cout<<n<<" is not prime";
+        return 0;
+    }
     if (n == 2) {
         cout<<n<<" is prime";
         return 0;
@@ -25,8 +29,8 @@ int isPrime(long long n) {
 
 int main() {
     long long n;
-    long long a;
-    long long b = -1;
+    short int a;
+    short int b = -1;
     bool sameNum = false;
     cout<<"Enter a number: ";
     cin>>n;
