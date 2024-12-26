@@ -10,18 +10,18 @@ using namespace std;
 
 int isPrime(long long n) {
     if (n == 1) {
-        cout<<n<<" is not prime";
+        cout<<n<<" is not prime"<<endl;
         return 0;
     }
     if (n == 2) {
-        cout<<n<<" is prime";
+        cout<<n<<" is prime"<<endl;
         return 0;
     }
     for (int i = 3; i <= sqrt(n); i++) {
         if (n % i == 0) {
-            cout<<n<<" is not prime";
+            cout<<n<<" is not prime"<<endl;
         } else {
-            cout<<n<<" is prime";
+            cout<<n<<" is prime"<<endl;
         }
         return 0;
     }    
