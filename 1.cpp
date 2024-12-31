@@ -147,15 +147,16 @@ int main() {
     while (true) {
         cout<<"----------------------------------------"<<"\n";
         cout<<"2. Choose a question."<<"\n";
-        cout<<"\ta. Q1: list the coefficients of 5 from 5 up to 200"<<"\n";
+        cout<<"\ta. Q1: List the coefficients of 5 from 5 up to 200"<<"\n";
         cout<<"\tb. Q2: Quadratic equation"<<"\n";
         cout<<"\tc. Q3: Sum of array, count numbers less than 10 and check for 25"<<"\n";
-        cout<<"\td. Q8: Show worst and second-worst scores"<<"\n";
-        cout<<"\te. Q10: Show the factors of a number and their count"<<"\n";
-        cout<<"\tf. Placing name in an array"<<"\n";
+        cout<<"\td. Q4: A piecewise function"<<"\n";
+        cout<<"\te. Q8: Show worst and second-worst scores"<<"\n";
+        cout<<"\tf. Q10: Show the factors of a number and their count"<<"\n";
+        cout<<"\tg. Placing name in an array"<<"\n";
+        cout<<"----------------------------------------"<<"\n";
         cout<<"------> ";
         cin>>question;
-        cout<<"----------------------------------------"<<"\n";
         switch (question) {
             case 'a': {
                 int result;
@@ -186,6 +187,26 @@ int main() {
                 break;
             }
             case 'd': {
+                long long x;
+                long long result;
+                cout<<"f(x) =\n";
+                cout<<"For (x > 1) ---> x^4 - 2x^2 + 5x - 3\n";
+                cout<<"For (x = 1) ---> -2\n";
+                cout<<"For (x < 1) ---> 4x^3 - x(x + 1) - 1\n\n";
+                cout<<"Enter x:\n";
+                cout<<"------> ";
+                cin>>x;
+                if (x == 1) {
+                    result = -2;
+                } else if (x > 1) { 
+                    result = pow(x, 4) - 2*pow(x,2) + 5*x - 3;
+                } else {
+                    result = 4*pow(x, 3) - x*(x + 1) - 1;
+                }
+                cout<<"f("<<x<<") = "<<result<<"\n\n";
+                break;
+            }
+            case 'e': {
                 int n;
                 cout<<"Enter number of scores."<<"\n";
                 cout<<"------> ";
@@ -194,7 +215,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'e': {
+            case 'f': {
                 int n;
                 cout<<"Enter an integer."<<"\n";
                 cout<<"------> ";
@@ -204,7 +225,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'f': {
+            case 'g': {
                 nameArray();
                 cout<<"\n";
                 break;
