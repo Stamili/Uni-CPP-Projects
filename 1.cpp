@@ -151,9 +151,10 @@ int main() {
         cout<<"\tb. Q2: Quadratic equation"<<"\n";
         cout<<"\tc. Q3: Sum of array, count numbers less than 10 and check for 25"<<"\n";
         cout<<"\td. Q4: A piecewise function"<<"\n";
-        cout<<"\te. Q8: Show worst and second-worst scores"<<"\n";
-        cout<<"\tf. Q10: Show the factors of a number and their count"<<"\n";
-        cout<<"\tg. Placing name in an array"<<"\n";
+        cout<<"\te. Q5: Check for prime"<<"\n";
+        cout<<"\tf. Q8: Show worst and second-worst scores"<<"\n";
+        cout<<"\tg. Q10: Show the factors of a number and their count"<<"\n";
+        cout<<"\th. Placing name in an array"<<"\n";
         cout<<"----------------------------------------"<<"\n";
         cout<<"------> ";
         cin>>question;
@@ -207,6 +208,36 @@ int main() {
                 break;
             }
             case 'e': {
+                long long number;
+                cout<<"Enter a number:\n";
+                cout<<"------> ";
+                cin>>number;
+                if (number <= 1) {
+                    cout<<"Not prime.\n\n";
+                } else if (number == 2) {
+                    cout<<"Prime.\n\n";
+                } else if (number % 2 == 0) {
+                    cout<<"Not prime.\n\n";
+                } else {
+                    int i = 3;
+                    bool prime = true;
+                    long long limit = sqrt(number);
+                    while (i <= limit) {
+                        int remainder = number % i;
+                        if (remainder == 0) {
+                            cout<<"Not prime.\n\n";
+                            prime = false;
+                            break;
+                        }
+                        i = i + 2;
+                    }
+                    if (prime) {
+                        cout<<"Prime.\n\n";
+                    }
+                }
+                break;
+            }
+            case 'f': {
                 int n;
                 cout<<"Enter number of scores."<<"\n";
                 cout<<"------> ";
@@ -215,7 +246,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'f': {
+            case 'g': {
                 int n;
                 cout<<"Enter an integer."<<"\n";
                 cout<<"------> ";
@@ -225,7 +256,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'g': {
+            case 'h': {
                 nameArray();
                 cout<<"\n";
                 break;
