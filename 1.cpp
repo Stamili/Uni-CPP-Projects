@@ -152,9 +152,10 @@ int main() {
         cout<<"\tc. Q3: Sum of array, count numbers less than 10 and check for 25"<<"\n";
         cout<<"\td. Q4: A piecewise function"<<"\n";
         cout<<"\te. Q5: Check for prime"<<"\n";
-        cout<<"\tf. Q8: Show worst and second-worst scores"<<"\n";
-        cout<<"\tg. Q10: Show the factors of a number and their count"<<"\n";
-        cout<<"\th. Placing name in an array"<<"\n";
+        cout<<"\tf. Q6: Triangle area and perimeter"<<"\n";
+        cout<<"\tg. Q8: Show worst and second-worst scores"<<"\n";
+        cout<<"\th. Q10: Show the factors of a number and their count"<<"\n";
+        cout<<"\ti. Placing name in an array"<<"\n";
         cout<<"----------------------------------------"<<"\n";
         cout<<"------> ";
         cin>>question;
@@ -238,6 +239,25 @@ int main() {
                 break;
             }
             case 'f': {
+                double a, b, c;
+                bool realtri = 1;
+                cout << "Enter triangle's sides." << "\n";
+                while (realtri) {
+                cout << "------> ";
+                cin >> a >> b >> c;
+                if (a + b > c && a + c > b && b + c > a) {
+                    double semiPer = (a + b + c) / 2;
+                    double area = sqrt(semiPer * (semiPer - a) * (semiPer - b) * (semiPer - c));
+                    cout << "Perimeter: " << semiPer * 2 << "\n";
+                    cout << "Area: " << semiPer << "\n";
+                    realtri = 0;
+                } else {
+                    cout << "This is not a real triangle. Enter the sides again." << "\n";
+                }
+            }
+            break;
+            }
+            case 'g': {
                 int n;
                 cout<<"Enter number of scores."<<"\n";
                 cout<<"------> ";
@@ -246,7 +266,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'g': {
+            case 'h': {
                 int n;
                 cout<<"Enter an integer."<<"\n";
                 cout<<"------> ";
@@ -256,7 +276,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'h': {
+            case 'i': {
                 nameArray();
                 cout<<"\n";
                 break;
