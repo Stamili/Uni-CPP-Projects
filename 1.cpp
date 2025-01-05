@@ -106,12 +106,12 @@ int score(int n) {
     return 0;
 }
 
-int numArray(int n) {
+int numArray(int arrayLen) {
 
     int i = 0;
-    int A[n];
+    int A[arrayLen];
 
-    for (; i < n; i++) {
+    for (; i < arrayLen; i++) {
         cout << "Enter number." << "\n";
         cout << "-------> ";
         cin >> A[i];
@@ -121,15 +121,13 @@ int numArray(int n) {
     int sum = 0;
     bool E = false;
 
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < arrayLen; i++) {
         if (A[i] < 10) {
             lessThanTen += 1;
         }
-
         if (A[i] == 25) {
             E = true;
         }
-
         sum += A[i];
     }
 
@@ -146,8 +144,8 @@ int numArray(int n) {
 
 double quadEquat(double a, double b, double c) {
 
-    double x;
-    double X;
+    double x1;
+    double x2;
     double g;
 
     if (a == 0 && b == 0) {
@@ -166,16 +164,15 @@ double quadEquat(double a, double b, double c) {
             cout << "x = " << -b / (2 * a);
             return 0;
         } else {
-            x = (-b + sqrt(g)) / (2 * a);
-            X = (-b - sqrt(g)) / (2 * a);
-            cout << "x = " << x << " , " << X;
+            x1 = (-b + sqrt(g)) / (2 * a);
+            x2 = (-b - sqrt(g)) / (2 * a);
+            cout << "x = " << x1 << " , " << x2;
             return 0;
         }
     }
 }
 
 int main() {
-
     string confirmation;
     short int question;
     long long studentid;
@@ -186,16 +183,16 @@ int main() {
 
     while (true) {
         cout << "----------------------------------------" << "\n";
-        cout << "2. Choose a question." << "\n";
-        cout << "\t Q1: List the coefficients of 5 from 5 up to 200" << "\n";
-        cout << "\t Q2: Quadratic equation" << "\n";
-        cout << "\t Q3: Sum of array, count numbers less than 10 and check for 25" << "\n";
-        cout << "\t Q4: A piecewise function" << "\n";
-        cout << "\t Q5: Check for prime" << "\n";
-        cout << "\t Q6: Triangle area and perimeter" << "\n";
-        cout << "\t Q8: Show worst and second-worst scores" << "\n";
-        cout << "\t Q10: Show the factors of a number and their count" << "\n";
-        cout << "\t Q16: Placing name in an array" << "\n";
+        cout << "2. Choose a question." << "\n\n";
+        cout << "1.  List the coefficients of 5 from 5 up to 200" << "\n";
+        cout << "2.  Quadratic equation" << "\n";
+        cout << "3.  Sum of array, count numbers less than 10 and check for 25" << "\n";
+        cout << "4.  A piecewise function" << "\n";
+        cout << "5.  Check for prime" << "\n";
+        cout << "6.  Triangle area and perimeter" << "\n";
+        cout << "8.  Show worst and second-worst scores" << "\n";
+        cout << "10. Show the factors of a number and their count" << "\n";
+        cout << "16. Placing name in an array" << "\n";
         cout << "----------------------------------------" << "\n";
         cout << "-------> ";
         cin >> question;
@@ -221,11 +218,11 @@ int main() {
             break;
         }
         case 3: {
-            int n;
+            int arrayLen;
             cout << "Enter the length of your array." << "\n";
             cout << "-------> ";
-            cin >> n;
-            numArray(n);
+            cin >> arrayLen;
+            numArray(arrayLen);
             cout << "\n";
             break;
         }
