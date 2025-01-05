@@ -139,7 +139,7 @@ double quadEquat(double a, double b, double c) {
 
 int main() {
     string confirmation;
-    char question;
+    short int question;
     long long studentid;
     cout<<"1. Enter your student number."<<"\n";
     cout<<"------> ";
@@ -147,20 +147,20 @@ int main() {
     while (true) {
         cout<<"----------------------------------------"<<"\n";
         cout<<"2. Choose a question."<<"\n";
-        cout<<"\ta. Q1: List the coefficients of 5 from 5 up to 200"<<"\n";
-        cout<<"\tb. Q2: Quadratic equation"<<"\n";
-        cout<<"\tc. Q3: Sum of array, count numbers less than 10 and check for 25"<<"\n";
-        cout<<"\td. Q4: A piecewise function"<<"\n";
-        cout<<"\te. Q5: Check for prime"<<"\n";
-        cout<<"\tf. Q6: Triangle area and perimeter"<<"\n";
-        cout<<"\tg. Q8: Show worst and second-worst scores"<<"\n";
-        cout<<"\th. Q10: Show the factors of a number and their count"<<"\n";
-        cout<<"\ti. Placing name in an array"<<"\n";
+        cout<<"\t Q1: List the coefficients of 5 from 5 up to 200"<<"\n";
+        cout<<"\t Q2: Quadratic equation"<<"\n";
+        cout<<"\t Q3: Sum of array, count numbers less than 10 and check for 25"<<"\n";
+        cout<<"\t Q4: A piecewise function"<<"\n";
+        cout<<"\t Q5: Check for prime"<<"\n";
+        cout<<"\t Q6: Triangle area and perimeter"<<"\n";
+        cout<<"\t Q8: Show worst and second-worst scores"<<"\n";
+        cout<<"\t Q10: Show the factors of a number and their count"<<"\n";
+        cout<<"\t Q16: Placing name in an array"<<"\n";
         cout<<"----------------------------------------"<<"\n";
         cout<<"------> ";
         cin>>question;
         switch (question) {
-            case 'a': {
+            case 1: {
                 int result;
                 for (int coefficient = 1; coefficient <= 40; coefficient++) {
                     result = coefficient * 5;
@@ -169,7 +169,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'b': {
+            case 2: {
                 double a, b, c;
                 cout<<"ax^2 + bx + c = 0"<<"\n";
                 cout<<"Enter a b c"<<"\n";
@@ -179,7 +179,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'c': {
+            case 3: {
                 int n;
                 cout<<"Enter the length of your array."<<"\n";
                 cout<<"------> ";
@@ -188,7 +188,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'd': {
+            case 4: {
                 long long x;
                 long long result;
                 cout<<"f(x) =\n";
@@ -208,7 +208,7 @@ int main() {
                 cout<<"f("<<x<<") = "<<result<<"\n\n";
                 break;
             }
-            case 'e': {
+            case 5: {
                 long long number;
                 cout<<"Enter a number:\n";
                 cout<<"------> ";
@@ -238,7 +238,7 @@ int main() {
                 }
                 break;
             }
-            case 'f': {
+            case 6: {
                 double a, b, c;
                 bool realtri = 1;
                 cout << "Enter triangle's sides." << "\n";
@@ -257,7 +257,7 @@ int main() {
             }
             break;
             }
-            case 'g': {
+            case 8: {
                 int n;
                 cout<<"Enter number of scores."<<"\n";
                 cout<<"------> ";
@@ -266,7 +266,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'h': {
+            case 10: {
                 int n;
                 cout<<"Enter an integer."<<"\n";
                 cout<<"------> ";
@@ -276,7 +276,7 @@ int main() {
                 cout<<"\n";
                 break;
             }
-            case 'i': {
+            case 16: {
                 nameArray();
                 cout<<"\n";
                 break;
