@@ -294,7 +294,7 @@ int main() {
                     double semiPer = (a + b + c) / 2;
                     double area = sqrt(semiPer * (semiPer - a) * (semiPer - b) * (semiPer - c));
                     cout << "Perimeter: " << semiPer * 2 << "\n";
-                    cout << "Area: " << semiPer << "\n";
+                    cout << "Area: " << area << "\n";
                     realtri = 0;
                 } else {
                     cout << "This is not a real triangle. Enter the sides again." << "\n";
