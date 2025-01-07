@@ -175,15 +175,22 @@ double quadEquat(double a, double b, double c) {
 int main() {
     string confirmation;
     short int question;
-    long long studentid;
-
-    cout << "1. Enter your student number." << "\n";
+    /* long long studentID;
+    bool validID = false;
+    cout << "1) Enter your student number." << "\n";
+    while (!validID) {
     cout << "-------> ";
-    cin >> studentid;
-
+    cin >> studentID;
+    if (studentID >= 1000000000 && studentID <= 9999999999)  {
+        validID = true;
+    } else {
+        cout << "Invalid ID, try again." << "\n";
+    }
+    } */
+    
     while (true) {
         cout << "----------------------------------------" << "\n";
-        cout << "2. Choose a question." << "\n\n";
+        cout << "2) Choose a question." << "\n\n";
         cout << "1.  List the coefficients of 5 from 5 up to 200" << "\n";
         cout << "2.  Quadratic equation" << "\n";
         cout << "3.  Sum of array, count numbers less than 10 and check for 25" << "\n";
@@ -310,7 +317,7 @@ int main() {
             long long temp;
             bool invalidElement = true;
             cout << "Enter the element number to show. (From zero)" << "\n";
-            
+
             while (invalidElement) {
             cout << "-------> ";
             cin >> elementNum;
