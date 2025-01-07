@@ -199,6 +199,7 @@ int main() {
         cout << "6.  Triangle area and perimeter" << "\n";
         cout << "7.  Fibonacci sequence" << "\n";
         cout << "8.  Show worst and second-worst scores" << "\n";
+        cout << "9.  Number of digits" << "\n";
         cout << "10. Show the factors of a number and their count" << "\n";
         cout << "16. Placing name in an array" << "\n";
         cout << "----------------------------------------" << "\n";
@@ -349,6 +350,23 @@ int main() {
             cin >> n;
             score(n);
             cout << "\n";
+            break;
+        }
+        case 9: {
+            long long num;
+            short int digitCount;
+            cout << "Enter number." << "\n";
+            cout << "-------> ";
+            cin >> num;
+
+            for (digitCount = 0; num != 0; digitCount++) {
+                num /= 10;
+            }
+            if (digitCount == 0 || digitCount == 1) {
+                cout << "1 digit" << "\n\n";
+            } else {
+                cout << digitCount << " digits" << "\n\n";
+            }
             break;
         }
         case 10: {
