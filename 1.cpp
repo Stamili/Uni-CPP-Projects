@@ -190,6 +190,7 @@ int main() {
         cout << "4.  A piecewise function" << "\n";
         cout << "5.  Check for prime" << "\n";
         cout << "6.  Triangle area and perimeter" << "\n";
+        cout << "7.  Fibonacci sequence" << "\n";
         cout << "8.  Show worst and second-worst scores" << "\n";
         cout << "10. Show the factors of a number and their count" << "\n";
         cout << "16. Placing name in an array" << "\n";
@@ -283,10 +284,10 @@ int main() {
         }
         case 6: {
             double a, b, c;
-            bool realtri = 1;
+            bool realTri = 1;
             cout << "Enter triangle's sides." << "\n";
 
-            while (realtri) {
+            while (realTri) {
                 cout << "-------> ";
                 cin >> a >> b >> c;
 
@@ -295,11 +296,43 @@ int main() {
                     double area = sqrt(semiPer * (semiPer - a) * (semiPer - b) * (semiPer - c));
                     cout << "Perimeter: " << semiPer * 2 << "\n";
                     cout << "Area: " << area << "\n";
-                    realtri = 0;
+                    realTri = 0;
                 } else {
                     cout << "This is not a real triangle. Enter the sides again." << "\n";
                 }
             }
+            break;
+        }
+        case 7: {
+            long long elementNum;
+            long long resultNum = 1;
+            long long prevNum = 0;
+            long long temp;
+            bool invalidElement = true;
+            cout << "Enter the element number to show. (From zero)" << "\n";
+            
+            while (invalidElement) {
+            cout << "-------> ";
+            cin >> elementNum;
+            invalidElement = false;
+            if (elementNum <= -1) {
+                cout << "Invalid input, try again." << "\n";
+                invalidElement = true;
+                continue;
+            } else if (elementNum == 0) {
+                cout << "F(0): " << prevNum << "\n\n";
+            } else {
+            long long i;
+            for (i = 1; i < elementNum; i++) {
+                temp = resultNum;
+                resultNum = prevNum + resultNum;
+                prevNum = temp;
+            }
+            
+            cout << "F(" << elementNum << "): " << resultNum << "\n\n";
+            }
+            }
+
             break;
         }
         case 8: {
