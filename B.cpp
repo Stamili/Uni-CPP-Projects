@@ -19,9 +19,17 @@ int main() {
     cout << "Enter the degree of the polynomial function f(x): ";
     cin >> deg;
     double coe[deg + 1];
+    
     for (i = 0; i < deg + 1; i++) {
-        cout << "Enter coefficient for " << "x^" << deg - i << ": ";
+        if (deg - i != 0) 
+        cout << "Enter the coefficient for " << "x^" << deg - i << ": ";
+        else 
+        cout << "Enter the constant: ";
         cin >> coe[i];
+        if (coe [0] == 0) {
+        cout << "First term can't have 0 as coefficient." << "\n";
+        i = -1;
+        }
     }
     cout << "f(x) = ";
     bool firstTerm = true;
