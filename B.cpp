@@ -3,13 +3,13 @@
 
 using namespace std;
 
-void show_integrated_function(double coe[],short int arrayLen, double deg);
+double integral_result(double coe[], short int arrayLen, double deg, double a, double b);
 
 int main() {
-    short int a, b, i;
-    double deg;
+    short int i;
+    double deg, a, b;
     cout << "Integration of f(x) over the interval [a,b]." << "\n\n";
-    /* cout << "Enter a and b, should be between -1 and 5: ";
+    cout << "Enter a and b, should be between -1 and 5: ";
     while (true) {
         cin >> a >> b;
         if (a <= 5 && a >= -1 && b <= 5 && b >= -1) {
@@ -17,7 +17,7 @@ int main() {
         } else {
             cout << "Invalid input, try again." << "\n";
         }
-    } */
+    }
     cout << "Enter the degree of the polynomial function f(x): ";
     cin >> deg;
     short int arrayLen = deg + 1;
@@ -61,21 +61,15 @@ int main() {
         }
         firstTerm = false;
     }
-}   cout << "\n";
-    show_integrated_function(coe, arrayLen, deg);
-    cout << "\n\n";
-
-}
-
-void show_integrated_function(double coe[],short int arrayLen, double deg) {
+}   
     deg++;
     for (int i = 0; i < arrayLen; i++) {
         if (coe[i] != 0)
         coe[i] *= 1 / (deg - i);  
     }
     
-    cout << "\n" << "F(x) = ";
-    bool firstTerm = true;
+    cout << "\n\n" << "F(x) = ";
+    firstTerm = true;
     for (int i = 0; i < arrayLen; i++) {
     if (coe[i] == 0) {
         continue;
@@ -102,5 +96,29 @@ void show_integrated_function(double coe[],short int arrayLen, double deg) {
         firstTerm = false;
     }
 }
-cout << " + C";
+    cout << " + C";
+    cout << "\n\n";
+    cout << "Result of F(x) over the interval [" << a << "," << b << "]: "<< integral_result(coe, arrayLen, deg, a, b) << "\n\n";
+}
+
+double integral_result(double coe[], short int arrayLen, double deg, double a, double b) {
+    int i;
+    double lowerLimitResult;
+    double upperLimitResult;
+    double finalResult;
+    double temp = 0;
+    for (i = 0; i < arrayLen; i++) {
+        lowerLimitResult = coe[i] * pow(a, deg - i);
+        temp += lowerLimitResult;
+    }
+    lowerLimitResult = temp;
+    temp = 0;
+    for (i = 0; i < arrayLen; i++) {
+        upperLimitResult = coe[i] * pow(b, deg - i);
+        temp += upperLimitResult;
+    }
+    upperLimitResult = temp;
+    finalResult = upperLimitResult - lowerLimitResult;
+   
+    return finalResult;
 }
