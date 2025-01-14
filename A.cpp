@@ -16,14 +16,14 @@ int main() {
     char text[textLength];
     cin.get(text,textLength);
     
-    //Digit summation.
+    // Digit summation.
     for (i = 0; text[i] != '\0'; i++) { 
         if (text[i] >= '1' && text[i] <= '9')
         digitSum += text[i] - '0';
     }
     cout << "\n" << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << "\n" << "Sum of the digits: " << digitSum << "\n";
 
-    //Character count.
+    // Character count.
     for (i = 0; text[i] != '\0'; i++) {
         if (text[i] == ' ')
         continue;
@@ -31,7 +31,7 @@ int main() {
     }
     cout <<"Character count: " << charCount << "\n";
     
-    //Word count.
+    // Word count.
     for (i = 0; text[i] != '\0'; i++) {
          if ((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z')) {
             while (text[i] != ' ') {
@@ -42,7 +42,7 @@ int main() {
     }
     cout << "Word count: " << wordCount << "\n";
     
-    //Number summation.
+    // Number summation.
     for (i = 0; text[i] != '\0'; i++) {
         if (text[i] >= '1' && text[i] <= '9') {
             short int j = 0;
@@ -58,7 +58,7 @@ int main() {
     }
     cout << "Sum of the numbers: " << numberSum << "\n";
     
-    //Custom character count
+    // Custom character count.
     bool ask;
     while (true) {
     cout << "Would you like to count a character? (y/n) ";
@@ -98,4 +98,21 @@ int main() {
     } 
     }  
     }
+
+    // Question mark correction.
+    
+    // For do.
+    for (i = 0; text[i] != '\0'; i++) {
+        if ((text[i-2] != 'y' && text[i-3] != 'e' && text[i-4] != 'h' && text[i-5] != 't' && text[i-5] != 'T') && (text[i-2] != 'I') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'O' || text[i+1] == 'o') && (text[i+2] == ' ')) {
+            i += 3;
+            if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z')) {
+                i++;
+                while (text[i] != '.') {
+                    i++;                   
+                }
+                text[i] = '?';
+            }
+        }
+    }
+    cout << "\n" << text << "\n";
 }
