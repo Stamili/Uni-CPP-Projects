@@ -143,6 +143,20 @@ int main() {
         }
     }
 
+    // For doesn't.
+        for (i = 0; text[i] != '\0'; i++) {
+        if ((text[i-2] != 't' && text[i-3] != 'I' && text[i-3] != 'i') && (text[i-2] != 'e' && text[i-3] != 'H' && text[i-3] != 'h') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'o') && (text[i+2] == 'e') && (text[i+3] == 's') && (text[i+4] == 'n') && (text[i+5] == '\'') && (text[i+6] == 't') && (text[i+7] == ' ') && ((text[i+8] == 's' && text[i+9] == 'h' && text[i+10] == 'e') || (text[i+8] == 'h' && text[i+9] == 'e') || (text[i+8] == 'i' && text[i+9] == 't'))) {
+            i += 9;
+            if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z')) {
+                i++;
+                while (text[i] != '.') {
+                    i++;                   
+                }
+                text[i] = '?';
+            }
+        }
+    }
+
     cout << "\n" << "Corrected text" << "\n";
     cout << "------------------------------------------------";
     cout << "\n\n" << text << "\n\n";
