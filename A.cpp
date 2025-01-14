@@ -103,7 +103,7 @@ int main() {
     
     // For do.
     for (i = 0; text[i] != '\0'; i++) {
-        if ((text[i-2] != 'y' && text[i-3] != 'e' && text[i-4] != 'h' && text[i-5] != 't' && text[i-5] != 'T') && (text[i-2] != 'I') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'O' || text[i+1] == 'o') && (text[i+2] == ' ')) {
+        if ((text[i-2] != 'y' && text[i-3] != 'e' && text[i-4] != 'h' && text[i-5] != 't' && text[i-5] != 'T') && (text[i-2] != 'I') && (text[i-2] != 'u' && text[i-3] != 'o' && text[i-4] != 'Y' && text[i-5] != 'y') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'o') && (text[i+2] == ' ')) {
             i += 3;
             if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z')) {
                 i++;
@@ -114,5 +114,20 @@ int main() {
             }
         }
     }
+
+    // For don't.
+        for (i = 0; text[i] != '\0'; i++) {
+        if ((text[i-2] != 'y' && text[i-3] != 'e' && text[i-4] != 'h' && text[i-5] != 't' && text[i-5] != 'T') && (text[i-2] != 'I') && (text[i-2] != 'u' && text[i-3] != 'o' && text[i-4] != 'Y' && text[i-5] != 'y') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'o') && (text[i+2] == 'n') && (text[i+3] == '\'') && (text[i+4] == 't') && (text[i+5] == ' ')) {
+            i += 6;
+            if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z')) {
+                i++;
+                while (text[i] != '.') {
+                    i++;                   
+                }
+                text[i] = '?';
+            }
+        }
+    }
+
     cout << "\n" << text << "\n";
 }
