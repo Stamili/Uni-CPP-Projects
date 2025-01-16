@@ -8,6 +8,9 @@ double integral_result(double coe[], short int arrayLen, double deg, double a, d
 int main() {
     short int i;
     double deg, a, b;
+    char again;
+    bool redo = true;
+    while (redo) {
     cout << "Integration of f(x) over the interval [a,b]." << "\n\n";
     cout << "Enter a and b, should be between -1 and 5: ";
     while (true) {
@@ -99,6 +102,20 @@ int main() {
     cout << " + C";
     cout << "\n\n";
     cout << "Result of F(x) over the interval [" << a << "," << b << "]: "<< integral_result(coe, arrayLen, deg, a, b) << "\n\n";
+    cout << "\n" << "Would you like to do another one? (Y/N) ";
+    while (1) {
+    cin >> again;
+    if (again == 'N' || again == 'n') {
+    redo = false;
+    break;
+    } else if (again != 'Y' && again != 'y') {
+        cout << "Invalid input. Try again. ";
+    } else {
+        cout << "\n";
+        break;
+    }
+}
+}
 }
 
 double integral_result(double coe[], short int arrayLen, double deg, double a, double b) {
