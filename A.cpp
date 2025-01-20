@@ -369,8 +369,28 @@ int main() {
         }
         i += 7;
     }
-    }
 
+    // Correct "They am" to "They are"
+    if ((text[i] == 'T' || text[i] == 't') && (text[i+1] == 'H' || text[i+1] == 'h') && (text[i+2] == 'E' || text[i+2] == 'e') && (text[i+3] == 'Y' || text[i+3] == 'y') && (text[i+4] == ' ') && (text[i+5] == 'A' || text[i+5] == 'a') && (text[i+6] == 'M' || text[i+6] == 'm') && !((text[i+7] >= 'A' && text[i+7] <= 'Z') || (text[i+7] >= 'a' && text[i+7] <= 'z'))) {
+        text[i+6] = 'r';
+        j = i + 7;
+        if (text[j] == '\0') {
+            text[j+1] = '\0';
+        } else {
+            while (text[j] != '\0') {
+                j++;
+            }
+            text[j+1] = '\0';
+            text[j] = ' ';
+            while (j != i + 7) {
+                text[j] = text[j-1];
+                j--;
+            }
+        }
+        text[i+7] = 'e';
+        i += 8;
+    }
+    }
 
 
     cout << "\n" << "Corrected text" << "\n";
