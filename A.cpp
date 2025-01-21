@@ -3,25 +3,25 @@
 
 using namespace std;
 
-int main() {
-    short int textLength = 501;
-    short int i, j;
-    short int digitSum = 0;
-    long long numberSum = 0;
-    short int charCount = 0;
-    short int customCharCount = 0;
-    char customChar;
-    char countQuestion;
-    short int wordCount = 0;
-    char text[textLength];
-    cin.get(text,textLength);
-    
+const short int textLength = 501;
+short int i, j;
+short int digitSum = 0;
+long long numberSum = 0;
+short int charCount = 0;
+short int customCharCount = 0;
+char customChar;
+char countQuestion;
+short int wordCount = 0;
+char text[textLength];
+
+void textInfo() {
     // Digit summation.
     for (i = 0; text[i] != '\0'; i++) { 
         if (text[i] >= '1' && text[i] <= '9')
         digitSum += text[i] - '0';
     }
     cout << "\n" << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << "\n" << "Sum of the digits: " << digitSum << "\n";
+    digitSum = 0;
 
     // Character count.
     for (i = 0; text[i] != '\0'; i++) {
@@ -30,6 +30,7 @@ int main() {
         charCount++;
     }
     cout <<"Character count: " << charCount << "\n";
+    charCount = 0;
     
     // Word count.
     for (i = 0; text[i] != '\0'; i++) {
@@ -41,6 +42,7 @@ int main() {
         }
     }
     cout << "Word count: " << wordCount << "\n";
+    wordCount = 0;
     
     // Number summation.
     for (i = 0; text[i] != '\0'; i++) {
@@ -57,6 +59,7 @@ int main() {
         }
     }
     cout << "Sum of the numbers: " << numberSum << "\n";
+    numberSum = 0;
     
     // Custom character count.
     bool ask;
@@ -98,6 +101,12 @@ int main() {
     } 
     }  
     }
+    }
+
+int main() {
+    cout << "Welcome!" << "\n\n";
+    cin.get(text,textLength);
+    textInfo();
 
     // Question mark correction.
     
@@ -117,7 +126,7 @@ int main() {
 
     // For don't.
         for (i = 0; text[i] != '\0'; i++) {
-        if ((text[i-2] != 'y' && text[i-3] != 'e' && text[i-4] != 'h' && text[i-5] != 't' && text[i-5] != 'T') && (text[i-2] != 'I') && (text[i-2] != 'u' && text[i-3] != 'o' && text[i-4] != 'Y' && text[i-4] != 'y') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'o') && (text[i+2] == 'n') && (text[i+3] == '\'') && (text[i+4] == 't') && (text[i+5] == ' ')) {
+        if ((text[i-2] != 'y' && text[i-3] != 'e' && text[i-4] != 'h' && text[i-5] != 't' && text[i-5] != 'T') && (text[i-2] != 'I') && (text[i-2] != 'u' && text[i-3] != 'o' && text[i-4] != 'Y' && text[i-4] != 'y') && (text[i-3] != 'w' && text[i-3] != 'W' && text[i-2] != 'e') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'o') && (text[i+2] == 'n') && (text[i+3] == '\'') && (text[i+4] == 't') && (text[i+5] == ' ')) {
             i += 6;
             if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z')) {
                 i++;
@@ -159,7 +168,7 @@ int main() {
 
     // For did.
         for (i = 0; text[i] != '\0'; i++) {
-        if ((text[i-2] != 'I') && (text[i-2] != 't' && text[i-3] != 'I' && text[i-3] != 'i') && (text[i-2] != 'e' && text[i-3] != 'h' && text[i-4] != 'S' && text[i-4] != 's') && (text[i-2] != 'e' && text[i-3] != 'H' && text[i-3] != 'h') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'i') && (text[i+2] == 'd') && (text[i+3] == ' ') && ((text[i+4] == 's' && text[i+5] == 'h' && text[i+6] == 'e') || (text[i+4] == 'h' && text[i+5] == 'e') || (text[i+4] == 'i' && text[i+5] == 't') || (text[i+4] == 'y' && text[i+5] == 'o' && text[i+6] == 'u'))) {
+        if ((text[i-2] != 'I') && (text[i-2] != 't' && text[i-3] != 'I' && text[i-3] != 'i') && (text[i-2] != 'e' && text[i-3] != 'h' && text[i-4] != 'S' && text[i-4] != 's') && (text[i-2] != 'e' && text[i-3] != 'H' && text[i-3] != 'h') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'i') && (text[i+2] == 'd') && (text[i+3] == ' ') && ((text[i+4] == 's' && text[i+5] == 'h' && text[i+6] == 'e') || (text[i+4] == 'h' && text[i+5] == 'e') || (text[i+4] == 'i' && text[i+5] == 't') || (text[i+4] == 'y' && text[i+5] == 'o' && text[i+6] == 'u') || (text[i+4] == 'w' && text[i+5] == 'e'))) {
             i += 4;
             if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z')) {
                 i++;
@@ -392,10 +401,8 @@ int main() {
     }
     }
 
-
     cout << "\n" << "Corrected text" << "\n";
     cout << "------------------------------------------------";
-    cout << "\n\n" << text << "\n\n";
-    cout << "------------------------------------------------" << "\n";
-    
+    cout << "\n\n" << text << "\n";
+    textInfo();
 }
