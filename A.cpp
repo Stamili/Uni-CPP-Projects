@@ -110,6 +110,22 @@ int main() {
 
     // Question mark correction.
     
+    // For wh questions.
+    
+    for (i = 0; text[i] != '\0'; i++) {
+        if (!((text[i-1] >= 'a' && text[i-1] <= 'z') || (text[i-1] >= 'A' && text[i-1] <= 'Z')) && (text[i] == 'W' || text[i] == 'w') && (text[i+1] == 'H' || text[i+1] == 'h') && ((text[i+2] >= 'a' && text[i+2] <= 'z') || (text[i+2] >= 'A' && text[i+2] <= 'Z'))) {
+            i += 2;
+            j = i;
+            while (text[j] != ' ')
+            j++;
+            if (text[j-1] == 'r' && text[j-2] == 'e' && text[j-3] == 'v' && text[j-4] == 'e')
+            continue;
+            while (text[i] != '.')
+            i++;
+            text[i] = '?';
+        }
+    }
+
     // For do.
     for (i = 0; text[i] != '\0'; i++) {
         if ((text[i-2] != 'y' && text[i-3] != 'e' && text[i-4] != 'h' && text[i-5] != 't' && text[i-5] != 'T') && (text[i-2] != 'I') && (text[i-2] != 'u' && text[i-3] != 'o' && text[i-4] != 'Y' && text[i-4] != 'y') && (text[i] == 'D' || text[i] == 'd') && (text[i+1] == 'o') && (text[i+2] == ' ')) {
