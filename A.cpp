@@ -113,15 +113,16 @@ int main() {
     // For wh questions.
     
     for (i = 0; text[i] != '\0'; i++) {
-        if (!((text[i-1] >= 'a' && text[i-1] <= 'z') || (text[i-1] >= 'A' && text[i-1] <= 'Z')) && (text[i] == 'W' || text[i] == 'w') && (text[i+1] == 'H' || text[i+1] == 'h') && ((text[i+2] >= 'a' && text[i+2] <= 'z') || (text[i+2] >= 'A' && text[i+2] <= 'Z'))) {
+        if (i > 0 && !((text[i-1] >= 'a' && text[i-1] <= 'z') || (text[i-1] >= 'A' && text[i-1] <= 'Z')) && (text[i] == 'W' || text[i] == 'w') && (text[i+1] == 'H' || text[i+1] == 'h') && ((text[i+2] >= 'a' && text[i+2] <= 'z') || (text[i+2] >= 'A' && text[i+2] <= 'Z'))) {
             i += 2;
             j = i;
-            while (text[j] != ' ')
+            while (text[j] != ' ' && text[j] != '.' && text[j] != '\0')
             j++;
-            if (text[j-1] == 'r' && text[j-2] == 'e' && text[j-3] == 'v' && text[j-4] == 'e')
+            if ((text[j-1] == 'r' && text[j-2] == 'e' && text[j-3] == 'v' && text[j-4] == 'e') || (text[j-1] == 'g' && text[j-2] == 'n' && text[j-3] == 'i'))
             continue;
-            while (text[i] != '.')
+            while (text[i] != '.' && text[i] != '\0')
             i++;
+            if (text[i] == '.')
             text[i] = '?';
         }
     }
