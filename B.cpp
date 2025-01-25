@@ -3,6 +3,7 @@
 
 using namespace std;
 
+void show_function(double coe[], short int arrayLen, double deg);
 double integral_result(double coe[], short int arrayLen, double deg, double a, double b);
 
 int main() {
@@ -38,33 +39,8 @@ int main() {
         }
     }
     cout << "\n" << "f(x) = ";
-    bool firstTerm = true;
-    for (i = 0; i < arrayLen; i++) {
-    if (coe[i] == 0) {
-        continue;
-    } else {
-        if (!firstTerm && coe[i] > 0) {
-            cout << " + ";
-        }
-        if (coe[i] < 0) {
-            cout << " - ";
-        }
-        if (coe[i] != 1 || (coe[i] == 1 && (deg - i == 0))) {
-            if (coe[i] > 0)
-            cout << coe[i];
-            if (coe[i] < 0)
-            cout << -coe[i];
-        }
-        if (deg - i != 0) {
-            if (deg - i == 1) {
-                cout << "x";
-            } else {
-                cout << "x^" << deg - i;
-            }
-        }
-        firstTerm = false;
-    }
-}   
+    show_function(coe, arrayLen, deg);
+
     deg++;
     for (int i = 0; i < arrayLen; i++) {
         if (coe[i] != 0)
@@ -72,33 +48,8 @@ int main() {
     }
     
     cout << "\n\n" << "F(x) = ";
-    firstTerm = true;
-    for (int i = 0; i < arrayLen; i++) {
-    if (coe[i] == 0) {
-        continue;
-    } else {
-        if (!firstTerm && coe[i] > 0) {
-            cout << " + ";
-        }
-        if (coe[i] < 0) {
-            cout << " - ";
-        }
-        if (coe[i] != 1 || (coe[i] == 1 && (deg - i == 0))) {
-            if (coe[i] > 0)
-            cout << coe[i];
-            if (coe[i] < 0)
-            cout << -coe[i];
-        }
-        if (deg - i != 0) {
-            if (deg - i == 1) {
-                cout << "x";
-            } else {
-                cout << "x^" << deg - i;
-            }
-        }
-        firstTerm = false;
-    }
-}
+    show_function(coe, arrayLen, deg);
+    
     cout << " + C";
     cout << "\n\n";
     cout << "Result of F(x) over the interval [" << a << "," << b << "]: "<< integral_result(coe, arrayLen, deg, a, b) << "\n\n";
@@ -138,4 +89,34 @@ double integral_result(double coe[], short int arrayLen, double deg, double a, d
     finalResult = upperLimitResult - lowerLimitResult;
    
     return finalResult;
+}
+
+void show_function(double coe[], short int arrayLen, double deg) {
+    bool firstTerm = true;
+    for (int i = 0; i < arrayLen; i++) {
+    if (coe[i] == 0) {
+        continue;
+    } else {
+        if (!firstTerm && coe[i] > 0) {
+            cout << " + ";
+        }
+        if (coe[i] < 0) {
+            cout << " - ";
+        }
+        if (coe[i] != 1 || (coe[i] == 1 && (deg - i == 0))) {
+            if (coe[i] > 0)
+            cout << coe[i];
+            if (coe[i] < 0)
+            cout << -coe[i];
+        }
+        if (deg - i != 0) {
+            if (deg - i == 1) {
+                cout << "x";
+            } else {
+                cout << "x^" << deg - i;
+            }
+        }
+        firstTerm = false;
+    }
+}
 }
