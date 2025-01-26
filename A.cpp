@@ -14,6 +14,47 @@ char countQuestion;
 short int wordCount = 0;
 char text[textLength];
 
+void key_words(char* text) {
+    char textCopy[textLength];
+    strcpy(textCopy, text);
+
+    char* words[textLength];
+    int counts[textLength] = {0}; 
+    int wordCount = 0; 
+
+    char* word = strtok(textCopy, " .,!?;:");
+    while (word) {
+        bool found = false;
+        for (int i = 0; i < wordCount; ++i) {
+            if (strcmp(words[i], word) == 0) {
+                ++counts[i];
+                found = true;
+                break;
+            }
+        }
+    
+        if (!found) {
+            words[wordCount] = word;
+            ++counts[wordCount];
+            ++wordCount;
+        }
+        word = strtok(NULL, " .,!?;:");
+    }
+
+    cout << "Most used words and their count." << "\n" << "-----------------------------------\n";
+
+    for (int i = 0; i < 3; ++i) {
+        int maxIndex = 0;
+        for (int j = 1; j < wordCount; ++j) {
+            if (counts[j] > counts[maxIndex]) {
+                maxIndex = j;
+            }
+        }
+        cout << words[maxIndex] << " : " << counts[maxIndex] << "\n";
+        counts[maxIndex] = 0;
+    }
+}
+
 void textInfo() {
     // Digit summation.
     for (i = 0; text[i] != '\0'; i++) { 
@@ -61,6 +102,9 @@ void textInfo() {
     cout << "Sum of the numbers: " << numberSum << "\n";
     numberSum = 0;
     
+    // Show three most-frequently-used words.
+    key_words(text);
+
     // Custom character count.
     bool ask;
     while (true) {
