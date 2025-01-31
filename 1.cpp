@@ -222,6 +222,7 @@ int main() {
         cout << "9.  Number of digits" << "\n";
         cout << "10. Show the factors of a number and their count" << "\n";
         cout << "12. Power function" << "\n";
+        cout << "13. Show the next three even numbers" << "\n";
         cout << "16. Placing name in an array" << "\n";
         cout << "----------------------------------------" << "\n";
         cout << "-------> ";
@@ -405,6 +406,20 @@ int main() {
             cout << "a^b" << "\n" << "Enter a and b: ";
             cin >> a >> b;
             cout << "\n" << a << "^" << b << " = "<< calculate_power(a, b) << "\n\n";
+            break;
+        }
+        case 13: {
+            double number;
+            cout << "Enter number: ";
+            cin >> number;
+            if (number != floor(number))
+            number = ceil(number);
+            if (fmod(number, 2) == 0)
+            cout << "\n" << number + 2 << "\t" << number + 4 <<
+            "\t" << number + 6 << "\n\n";
+            else
+            cout << "\n" << number + 1 << "\t" << number + 3 <<
+            "\t" << number + 5 << "\n\n";
             break;
         }
         case 16: {
