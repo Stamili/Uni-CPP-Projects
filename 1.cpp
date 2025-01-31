@@ -3,6 +3,26 @@
 
 using namespace std;
 
+double calculate_power(double a, double b) {
+    double result = 1;
+    if (b == 0 || a == 1)
+    return 1;
+    else if (a == 0 || b == 1)
+    return a;
+    else if (b < 0) {
+        a = 1/a;
+        for (int i = -b; i != 0; i--) {
+            result *= a;
+        } 
+        return result;
+    } else {
+        for (int i = 0; i != b; i++) {
+            result *= a;
+        }
+        return result;
+    }
+}
+
 int nameArray() {
 
     int index1 = 0;
@@ -201,6 +221,7 @@ int main() {
         cout << "8.  Show worst and second-worst scores" << "\n";
         cout << "9.  Number of digits" << "\n";
         cout << "10. Show the factors of a number and their count" << "\n";
+        cout << "12. Power function" << "\n";
         cout << "16. Placing name in an array" << "\n";
         cout << "----------------------------------------" << "\n";
         cout << "-------> ";
@@ -377,6 +398,13 @@ int main() {
             cout << "Its integer factors: ";
             factor(n);
             cout << "\n";
+            break;
+        }
+        case 12: {
+            double a, b;
+            cout << "a^b" << "\n" << "Enter a and b: ";
+            cin >> a >> b;
+            cout << "\n" << a << "^" << b << " = "<< calculate_power(a, b) << "\n\n";
             break;
         }
         case 16: {
