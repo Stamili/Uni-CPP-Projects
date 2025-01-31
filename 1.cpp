@@ -223,6 +223,7 @@ int main() {
         cout << "10. Show the factors of a number and their count" << "\n";
         cout << "12. Power function" << "\n";
         cout << "13. Show the next three even numbers" << "\n";
+        cout << "14. Result of a sequence up to a certain term" << "\n";
         cout << "16. Placing name in an array" << "\n";
         cout << "----------------------------------------" << "\n";
         cout << "-------> ";
@@ -420,6 +421,31 @@ int main() {
             else
             cout << "\n" << number + 1 << "\t" << number + 3 <<
             "\t" << number + 5 << "\n\n";
+            break;
+        }
+        case 14: {
+            long long termNum, i, j;
+            long long result = 0;
+            cout << "S = 1^2 - 2^3 + 3^4 - 4^5 ..." << "\n";
+            cout << "Enter the term number to stop the calculation at: ";
+            bool validTerm = false;
+            while (!validTerm) {
+            cin >> termNum;
+            if (termNum <= 0 || termNum != floor(termNum)) {
+                cout << "\n" << "Invalid input, try again. ";
+            } else {
+                validTerm = true;
+            }
+            }
+            j = 2;
+            for (i = 1; i != termNum + 1; i++) {
+                    if (i % 2 == 0)
+                    result -= pow(i, j);
+                    else
+                    result += pow(i, j);
+                    j++;
+            }
+            cout << "\n" << "Result: " << result << "\n\n";
             break;
         }
         case 16: {
