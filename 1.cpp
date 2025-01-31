@@ -224,6 +224,7 @@ int main() {
         cout << "12. Power function" << "\n";
         cout << "13. Show the next three even numbers" << "\n";
         cout << "14. Result of a sequence up to a certain term" << "\n";
+        cout << "15. A random algorithm" << "\n";
         cout << "16. Placing name in an array" << "\n";
         cout << "----------------------------------------" << "\n";
         cout << "-------> ";
@@ -446,6 +447,23 @@ int main() {
                     j++;
             }
             cout << "\n" << "Result: " << result << "\n\n";
+            break;
+        }
+        case 15: {
+            int C = 0, D = 0, I = 1, X;
+            cout << "\n" << "Initial values:" << "\n" << "C = 0" <<
+            "\n" << "D = 0" << "\n\n";
+            for (I; I <= 5; I++) {
+                cout << "Enter integer: ";
+                cin >> X;
+                if (X == 0) {
+                    D++;
+                    C--;
+                } else if (X % 2 == 0)
+                C++;
+            }
+            cout << "\n" << "Final values:" << "\n" << "C = " << C <<
+            "\n" << "D = " << D << "\n\n";
             break;
         }
         case 16: {
