@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <random>
 
 using namespace std;
 
@@ -221,6 +222,7 @@ int main() {
         cout << "8.  Show worst and second-worst scores" << "\n";
         cout << "9.  Number of digits" << "\n";
         cout << "10. Show the factors of a number and their count" << "\n";
+        cout << "11. Game" << "\n";
         cout << "12. Power function" << "\n";
         cout << "13. Show the next three even numbers" << "\n";
         cout << "14. Result of a sequence up to a certain term" << "\n";
@@ -401,6 +403,97 @@ int main() {
             cout << "Its integer factors: ";
             factor(n);
             cout << "\n";
+            break;
+        }
+        case 11: {
+            cout << "\n" << "Welcome! the goal of this game is to reach 25th square on our" << 
+            " (imaginary) board.";
+            cout << "\nRules: \n1. Dice needs to roll 6 for the player to enter the board." <<
+            "\n2. Player has a dice throw limit of 20, if they don't reach square 25, they lose!" <<
+            "\n3. Some squares have a perk, they push the player either forward or backward a number of squares.";
+            cout << "\n\n" << "Ready?";
+            cin.ignore(); 
+            cin.get();
+            short int pos;
+            short int dice;
+            short int throws = 0;
+            cout << "\n" << "Square = 0 (not on board yet!)";
+            cout << "\n\n" << "Press enter to throw the dice.";
+            while (1) {
+                cin.ignore();
+                random_device toss;
+                srand(toss());
+                dice = (rand() % 6) + 1;
+                throws++;
+                if (throws < 20) {
+                    if (dice == 6) {
+                        pos = 1;
+                        cout << "\n" << "Dice = " << dice;
+                        cout << "\n" << "Throws = " << throws;
+                        cout << "\n" << "Nice you got in.";
+                        break;
+                    }
+                    else {
+                        cout << "\n" << "Dice = " << dice;
+                        cout << "\n" << "Throws = " << throws;
+                        cout << "\n" << "6 didn't turn up, try again...?";
+                    }
+                } else {
+                    cout << "\n" << "You lost!" << "\n";
+                    break;
+                }
+            }
+
+        while (throws != 20) {
+            cout << "\n" << "Pos = " << pos;
+            cout << "\n\n" << "Press enter to throw the dice.";
+            cin.ignore();
+            random_device toss;
+            srand(toss());
+            dice = (rand() % 6) + 1;
+            throws++;
+            cout << "\n" << "Dice = " << dice;
+            cout << "\n" << "Throws = " << throws;
+            pos += dice;
+            if (throws == 20 && pos != 25) {
+                cout << "\n" << "You lost!" << "\n";
+                break;
+            } else if (pos > 25) {
+                pos -= dice;
+                cout << "\n" << "Out of bounds! you did not move.";
+            } else if (pos == 25) {
+                cout << "\n" << "You won!" << "\n";
+                break;
+            } else if (pos == 3) {
+                cout << "\n" << "Pos = " << pos;
+                cout << "\n" << "Lucky! you moved two extra squares.";
+                pos += 2;
+            } else if (pos == 7) {
+                cout << "\n" << "Pos = " << pos;
+                cout << "\n" << "Lucky! you moved three extra squares.";
+                pos += 3;
+            } else if (pos == 14) {
+                cout << "\n" << "Pos = " << pos;
+                cout << "\n" << "Lucky! you moved one extra square.";
+                pos += 1;
+            } else if (pos == 17) {
+                cout << "\n" << "Pos = " << pos;
+                cout << "\n" << "Lucky! you moved two extra squares.";
+                pos += 2;
+            } else if (pos == 11) {
+                cout << "\n" << "Pos = " << pos;
+                cout << "\n" << "Unlucky! you moved three squares down.";
+                pos -= 3;
+            } else if (pos == 6) {
+                cout << "\n" << "Pos = " << pos;
+                cout << "\n" << "Unlucky! you moved four squares down.";
+                pos -= 4;
+            } else if (pos == 18) {
+                cout << "\n" << "Pos = " << pos;
+                cout << "\n" << "Unlucky! you moved five squares down.";
+                pos -= 5;
+            }
+        }
             break;
         }
         case 12: {
